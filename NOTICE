@@ -1,0 +1,9 @@
+Brygadzista
+Copyright (c) 2026 Adrian Wulf — MIT License (see LICENSE)
+
+This project includes third-party material:
+
+.claude/skills/antigravity-agents/SKILL.md
+  Source:  https://github.com/markfulton/claude-antigravity-agents
+  License: MIT License — Copyright (c) 2026 Mark Fulton
+  Changes: appended the sections "W tym projekcie" and "Źródło".

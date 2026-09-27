@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(executor/run.sh:*)",
+      "Bash(bash executor/run.sh:*)",
+      "Bash(executor/preflight.sh:*)",
+      "Bash(bash executor/preflight.sh:*)",
+      "Bash(executor/verify.sh:*)",
+      "Bash(bash executor/verify.sh:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git switch:*)",
+      "Bash(git checkout -b:*)",
+      "Bash(git stash:*)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git reset --hard:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-code.sh\"" }
+        ]
+      }
+    ]
+  }
+}
