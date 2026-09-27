@@ -16,6 +16,12 @@ prompt="$(cat "$brief")"$'\n\n'"$(cat "$DIR/rules.md")"
 [[ "$mode" == read ]] && prompt+=$'\n\nTRYB TYLKO DO ODCZYTU: nie modyfikuj, nie twórz i nie usuwaj żadnych plików.'
 
 raw="$(mktemp)"; trap 'rm -f "$raw"' EXIT
+# `timeout` (GNU) → `gtimeout` (macOS + coreutils) → bez limitu czasu
+with_timeout() {
+  if command -v timeout >/dev/null; then timeout "$EXECUTOR_TIMEOUT" "$@"
+  elif command -v gtimeout >/dev/null; then gtimeout "$EXECUTOR_TIMEOUT" "$@"
+  else "$@"; fi
+}
 case "$EXECUTOR" in
   agy)
     command -v agy >/dev/null || { echo "Nie znaleziono agy w PATH" >&2; exit 1; }
@@ -32,14 +38,14 @@ case "$EXECUTOR" in
     command -v gemini >/dev/null || { echo "Nie znaleziono gemini w PATH" >&2; exit 1; }
     args=(-p "$prompt"); [[ "$mode" == write ]] && args+=(--yolo)
     [[ -n "$EXECUTOR_MODEL" ]] && args+=(-m "$EXECUTOR_MODEL")
-    timeout "$EXECUTOR_TIMEOUT" gemini "${args[@]}" </dev/null >"$log" 2>&1; rc=$? ;;
+    with_timeout gemini "${args[@]}" </dev/null >"$log" 2>&1; rc=$? ;;
   codex)
     command -v codex >/dev/null || { echo "Nie znaleziono codex w PATH" >&2; exit 1; }
     sb=workspace-write; [[ "$mode" == read ]] && sb=read-only
     : >"$log"
     args=(exec --skip-git-repo-check -s "$sb" -o "$log")
     [[ -n "$EXECUTOR_MODEL" ]] && args+=(-m "$EXECUTOR_MODEL")
-    timeout "$EXECUTOR_TIMEOUT" codex "${args[@]}" "$prompt" </dev/null >"$raw" 2>&1; rc=$?
+    with_timeout codex "${args[@]}" "$prompt" </dev/null >"$raw" 2>&1; rc=$?
     [[ $rc -ne 0 || ! -s "$log" ]] && cat "$raw" >>"$log" ;;
   fake)
     "$FAKE_EXECUTOR" "$prompt" </dev/null >"$log" 2>&1; rc=$? ;;

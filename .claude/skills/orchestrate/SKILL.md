@@ -24,7 +24,7 @@ Nie piszesz kodu sam (CLAUDE.md, reguła 1).
 
 ## Dla każdego zadania
 
-1. **Stan PRZED:** `bash executor/verify.sh > .executor-logs/<ID>-before.txt 2>&1`
+1. **Stan PRZED:** `mkdir -p .executor-logs && bash executor/verify.sh > .executor-logs/<ID>-before.txt 2>&1`
    — zanotuj liczbę testów i metryki, których zadanie może dotknąć.
 2. **Zlecenie:** zapisz `.executor-logs/<ID>-p<n>.brief.md` wg kontraktu
    z `ORCHESTRATION.md` §3. Wskaż konkretne sekcje dokumentów. W próbie > 1
@@ -39,12 +39,14 @@ Nie piszesz kodu sam (CLAUDE.md, reguła 1).
 4. **Przeczytaj raport** z logu — szczególnie „Czego NIE zrobiono”.
 5. **Weryfikacja** — checklista z `ORCHESTRATION.md` §5, punkt po punkcie.
    Porównaj z `<ID>-before.txt`. Dla UI: uruchom aplikację i zrób zrzut ekranu
-   (sposób: `ARCHITECTURE.md` → „Środowisko agenta”).
+   (sposób: `ARCHITECTURE.md` → „Weryfikacja UI”).
 6. **Wynik:**
-   - ✅ spełnione → `git add` tylko plików z zakresu → commit
-     `<ID>: <opis> — via <wykonawca>, zweryfikowane` (+ stopka
-     Co-Authored-By, jeśli projekt jej używa) → w stanie: historia,
-     „Ukończone zadania” z hashem, licznik prób 0 → następne zadanie.
+   - ✅ spełnione → NAJPIERW aktualizacja stanu (historia próby,
+     „Ukończone zadania”, licznik prób 0, ewentualnie DECISIONS/MODULES),
+     POTEM `git add` plików z zakresu + `ORCHESTRATION_STATE.md` (i innych
+     zmienionych dokumentów) → jeden commit
+     `<ID>: <opis> — via <wykonawca>, zweryfikowane`. Po commicie drzewo
+     robocze jest czyste — to warunek startu następnego zadania.
    - ❌ niespełnione → próba + 1, wpis w historii (co zlecono / co wyszło /
      co nie tak). Próba < 4 → wróć do 2 z konkretnym feedbackiem.
      Próba = 4 → „zablokowane”, pełny opis problemu, STOP.
@@ -61,5 +63,5 @@ Po ostatnim zadaniu kolejki:
    z `ROADMAP.md`.
 2. ROADMAP: milestone → ✅; stan: podsumowanie w historii.
 3. Commit stanu. **STOP** — raport dla użytkownika: co zrobiono, co
-   warto przetestować ręcznie (playtest), lekcje, propozycja merge
+   warto przetestować ręcznie, lekcje, propozycja merge
    gałęzi do `main` (merge tylko po zgodzie) i następny milestone.

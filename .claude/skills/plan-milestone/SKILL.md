@@ -11,7 +11,7 @@ z których każde = jedno zlecenie, jedna weryfikacja, jeden commit.
 ## Procedura
 
 1. Przeczytaj `AGENTS.md`, `ROADMAP.md`, `ORCHESTRATION_STATE.md`
-   (Lekcje!), `ARCHITECTURE.md` i dokumenty systemów, których dotyczy
+   (Lekcje!), `ARCHITECTURE.md` i dokumenty modułów, których dotyczy
    milestone.
 2. Wybierz milestone: oznaczony 🔵 W TRAKCIE, a jeśli brak — pierwszy ⬜.
    Oznacz go w ROADMAP.md jako 🔵.
@@ -23,15 +23,15 @@ z których każde = jedno zlecenie, jedna weryfikacja, jeden commit.
       *Kryterium:* <mierzalne: test, komenda, metryka, zachowanie w przeglądarce/terminalu>
    ```
    Zasady:
-   - każde zadanie w granicach **jednego systemu/modułu**;
+   - każde zadanie w granicach **jednego modułu**;
    - kolejność sekwencyjna — późniejsze mogą korzystać z wcześniejszych;
    - kryterium sprawdzalne przez Ciebie (nie „działa dobrze”);
    - zadania z UI mają w kryterium sprawdzenie w działającej aplikacji (zrzut ekranu);
-   - nowy system → pierwsze zadanie tworzy też `MODULES/MODULE_<nazwa>.md`;
+   - nowy moduł → pierwsze zadanie tworzy też `MODULES/MODULE_<nazwa>.md`;
    - ostatnie zadanie = weryfikacja kryterium całego milestone'a z ROADMAP.
 5. Nad listą dopisz „Założenia wspólne” (gałąź `m<N>-<krótka-nazwa>`,
    zasady obowiązujące wszystkie zadania, decyzje techniczne podjęte przy
-   rozbiciu, rzeczy niemierzalne automatycznie → krótki playtest
+   rozbiciu, rzeczy niemierzalne automatycznie → krótki test ręczny
    użytkownika na koniec).
 6. Zapisz w `## Kolejka zadań` w `ORCHESTRATION_STATE.md`.
 7. Pokaż listę użytkownikowi i zapytaj (AskUserQuestion):

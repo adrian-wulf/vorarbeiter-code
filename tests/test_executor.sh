@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # executor/run.sh: sklejanie zlecenia z zasadami i klasyfikacja wyniku wykonawcy.
 cd "$(dirname "$0")/.." && source tests/lib.sh
+# Testy działają na kopii executor/ — prawdziwe rules.profile.md projektu zostaje nietknięte.
 T=$(mktemp -d); export EXECUTOR=fake FAKE_EXECUTOR="$T/fake.sh"
+REAL_PROFILE="$(cat executor/rules.profile.md 2>/dev/null || echo BRAK)"
+cp -r executor "$T/executor"; rm -f "$T/executor/rules.profile.md"
+cd "$T"; ROOT_DIR="$OLDPWD"
 echo "Zrób X w pliku a.txt" > "$T/brief"
 mk() { printf '#!/usr/bin/env bash\n%s\n' "$1" > "$FAKE_EXECUTOR"; chmod +x "$FAKE_EXECUTOR"; }
 
@@ -37,7 +41,15 @@ bash executor/run.sh "$T/nie-ma" write "$T/log" 2>/dev/null; assert_eq "brak pli
 bash executor/run.sh "$T/brief" zly "$T/log" 2>/dev/null;   assert_eq "zły tryb → 1" 1 $?
 EXECUTOR=nieznany bash executor/run.sh "$T/brief" write "$T/log" 2>/dev/null; assert_eq "nieznany wykonawca → 1" 1 $?
 
+# macOS bez coreutils: brak `timeout` — codex/gemini muszą działać bez niego
+NOT=$(mktemp -d); for b in bash cat mktemp rm jq grep head dirname mkdir; do ln -s "$(command -v $b)" "$NOT/$b"; done
+printf '#!/usr/bin/env bash\nfor a; do o=$a; done; [[ "$*" == *" -o "* ]] && { while [[ $# -gt 0 ]]; do [[ $1 == -o ]] && { echo "Gotowe codex." > "$2"; }; shift; done; }\n' > "$NOT/codex"; chmod +x "$NOT/codex"
+PATH="$NOT" EXECUTOR=codex "$NOT/bash" executor/run.sh "$T/brief" write "$T/log" 2>/dev/null; rc=$?
+assert_eq "codex bez timeout → 0" 0 "$rc"
+assert_contains "codex bez timeout — odpowiedź" "Gotowe codex." "$(cat "$T/log")"
+
 out=$(EXECUTOR=nieistniejacy-cli bash executor/preflight.sh 2>&1); rc=$?
 assert_eq "preflight bez binarki → 1" 1 "$rc"
 assert_contains "preflight mówi czytelnie" "nie jest w PATH" "$out"
+assert_eq "prawdziwe rules.profile.md nietknięte" "$REAL_PROFILE" "$(cat "$ROOT_DIR/executor/rules.profile.md" 2>/dev/null || echo BRAK)"
 finish

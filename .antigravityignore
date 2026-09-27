@@ -1,4 +1,2 @@
-.executor-logs/
-.claude/
-docs-templates/
-tests/
+/.executor-logs/
+/.claude/

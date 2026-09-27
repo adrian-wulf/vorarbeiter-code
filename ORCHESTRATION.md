@@ -90,8 +90,9 @@ DLA każdego zadania z kolejki w ORCHESTRATION_STATE.md:
  4. Uruchom `executor/run.sh` (tryb write) i obsłuż kod wyjścia (§2).
  5. NIE UFAJ raportowi. Zweryfikuj sam (§5).
  6. Kryterium spełnione →
-      - commit: `<ID>: <opis> — via <wykonawca>, zweryfikowane`
       - stan: zadanie → ukończone, licznik prób → 0, wpis w historii
+      - jeden commit (kod + ORCHESTRATION_STATE.md + zmienione dokumenty):
+        `<ID>: <opis> — via <wykonawca>, zweryfikowane` → drzewo czyste
       - następne zadanie.
  7. Kryterium NIE spełnione →
       - próba + 1, wpis w historii (co zlecono, co wyszło, co nie tak)
@@ -133,7 +134,7 @@ sformułowanym kryterium.
 - Wykonawca nie robi `git` (commit/push/reset/checkout) ani operacji
   sieciowych poza pracą nad kodem. Takie rzeczy robisz Ty — albo pytasz
   użytkownika.
-- Zakres jednego zlecenia **nie wykracza poza jeden system/moduł**. Jeśli
+- Zakres jednego zlecenia **nie wykracza poza jeden moduł**. Jeśli
   zadanie z natury dotyka kilku — rozbij je.
 - Każdy milestone na własnej gałęzi (`m<N>-<krótka-nazwa>`); merge do
   `main` tylko po akceptacji użytkownika.
