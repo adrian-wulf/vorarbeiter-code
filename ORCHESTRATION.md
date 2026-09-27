@@ -1,4 +1,4 @@
-# ORCHESTRATION.md — Brygadzista zleca, wykonawca koduje
+# ORCHESTRATION.md — Vorarbeiter zleca, wykonawca koduje
 
 > Instrukcja dla Claude Code (kierownika). Opisuje pętlę, w której Claude
 > przechodzi przez `ROADMAP.md` zadanie po zadaniu: zleca każde wykonawcy,

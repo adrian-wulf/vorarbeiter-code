@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Hook guard-code: Brygadzista nie może edytować plików kodu.
+# Hook guard-code: Vorarbeiter nie może edytować plików kodu.
 cd "$(dirname "$0")/.." && source tests/lib.sh
 ROOT=$(mktemp -d); mkdir -p "$ROOT/.claude"
 hook() { # $1 = file_path → echo kod wyjścia
@@ -19,7 +19,7 @@ assert_eq ".cs blokowany"                    2 "$(hook "$ROOT/Assets/Scripts/Pla
 assert_eq ".ts względny blokowany"           2 "$(hook "src/index.ts")"
 assert_eq ".tscn blokowany"                  2 "$(hook "$ROOT/main.tscn")"
 hook "$ROOT/a.py" >/dev/null
-assert_contains "komunikat po polsku" "Brygadzista nie pisze kodu" "$(cat "$ROOT/err")"
+assert_contains "komunikat po polsku" "Vorarbeiter nie pisze kodu" "$(cat "$ROOT/err")"
 touch "$ROOT/.claude/allow-code"
 assert_eq "allow-code odblokowuje"           0 "$(hook "$ROOT/a.py")"
 rm "$ROOT/.claude/allow-code"

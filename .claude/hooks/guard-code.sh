@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PreToolUse (Edit|Write|NotebookEdit): Brygadzista nie pisze kodu — kod pisze wykonawca.
+# PreToolUse (Edit|Write|NotebookEdit): Vorarbeiter nie pisze kodu — kod pisze wykonawca.
 # Fail-closed: gdy nie da się ocenić ścieżki (np. brak jq), edycja jest blokowana.
 set -uo pipefail
 
@@ -27,11 +27,11 @@ normalize() {
 
 input=$(cat)
 root="${CLAUDE_PROJECT_DIR:-$PWD}"
-root="$(cd "$root" 2>/dev/null && pwd -P)" || block "Brygadzista: nie mogę ustalić katalogu projektu ($CLAUDE_PROJECT_DIR)."
+root="$(cd "$root" 2>/dev/null && pwd -P)" || block "Vorarbeiter: nie mogę ustalić katalogu projektu ($CLAUDE_PROJECT_DIR)."
 [[ -f "$root/.claude/allow-code" ]] && exit 0
 
 command -v jq >/dev/null || block \
-  "Brygadzista: brak programu jq — hook nie może sprawdzić ścieżki, więc blokuje edycję." \
+  "Vorarbeiter: brak programu jq — hook nie może sprawdzić ścieżki, więc blokuje edycję." \
   "Zainstaluj jq (np. apt install jq / brew install jq) i spróbuj ponownie."
 path=$(jq -r '.tool_input.file_path // .tool_input.notebook_path // empty' <<<"$input" 2>/dev/null)
 [[ -z "$path" ]] && exit 0
@@ -50,6 +50,6 @@ rel="${abs#"$root"/}"
 case "$rel" in
   *.md|.claude/*|executor/*|.gitignore|.gitattributes|.antigravityignore) exit 0 ;;
 esac
-block "Brygadzista nie pisze kodu: $rel" \
+block "Vorarbeiter nie pisze kodu: $rel" \
   "Zleć tę zmianę wykonawcy przez executor/run.sh (patrz ORCHESTRATION.md)." \
   "Tylko jeśli użytkownik WPROST pozwolił Ci pisać kod: utwórz .claude/allow-code i usuń go po zakończeniu."

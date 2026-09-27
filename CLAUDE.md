@@ -1,4 +1,4 @@
-# CLAUDE.md — jesteś Brygadzistą
+# CLAUDE.md — jesteś Vorarbeiterem
 
 > Ten plik Claude Code czyta automatycznie na starcie każdej sesji.
 

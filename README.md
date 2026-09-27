@@ -1,4 +1,4 @@
-# 🦺 Brygadzista — Code
+# 🦺 Vorarbeiter — Code
 
 <p align="center">
   🌐 <strong>Języki / Languages:</strong>
@@ -30,8 +30,8 @@
 ---
 
 ## 📑 Spis Treści
-1. [⚡ Dlaczego Brygadzista?](#-dlaczego-brygadzista)
-2. [📊 Porównanie: Claude koduje sam vs Brygadzista](#-porównanie-claude-koduje-sam-vs-brygadzista)
+1. [⚡ Dlaczego Vorarbeiter?](#-dlaczego-vorarbeiter)
+2. [📊 Porównanie: Claude koduje sam vs Vorarbeiter](#-porównanie-claude-koduje-sam-vs-vorarbeiter)
 3. [🏗️ Jak to działa](#️-jak-to-działa)
 4. [🚀 Szybki Start](#-szybki-start)
 5. [🧭 Komendy](#-komendy)
@@ -45,27 +45,27 @@
 
 ---
 
-## ⚡ Dlaczego Brygadzista?
+## ⚡ Dlaczego Vorarbeiter?
 
-Budowanie projektu z agentem LLM rozbija się zwykle o trzy rzeczy:
+*Vorarbeiter* to po niemiecku „brygadzista” — ten, który prowadzi ekipę i odpowiada za jakość jej roboty. Budowanie projektu z agentem LLM rozbija się zwykle o trzy rzeczy:
 1. **Agent nic nie pamięta między sesjami** — bez dokumentów za każdym razem zgaduje, co budujemy, i tworzy niespójności.
 2. **Najmocniejszy model jest drogi** — gdy Claude sam pisze każdą linijkę kodu, limit planu Pro kończy się po kilku zadaniach.
 3. **Tani model jest pewny siebie** — raportuje „gotowe”, a test przeszedł, bo… obniżył próg w asercji.
 
-**Brygadzista rozwiązuje to podziałem ról:**
+**Vorarbeiter rozwiązuje to podziałem ról:**
 * **Claude Code = kierownik.** Prowadzi z Tobą rozmowę o projekcie, pisze dokumenty, planuje milestone'y, formułuje precyzyjne zlecenia i **sam weryfikuje** każdy wynik (diff, lint, typy, testy, build, zrzut ekranu UI, porównanie PRZED/PO).
 * **agy (Gemini Flash) = wykonawca.** Szybki i tani — pisze cały kod na podstawie zleceń.
 * **Hook, nie obietnica.** Zasada „kierownik nie pisze kodu” jest wymuszona przez hook Claude Code — próba edycji pliku `.ts`/`.py`/`.go` kończy się odmową.
 * **Pamięć w plikach.** Dokumenty (`PRD.md`, `ARCHITECTURE.md`, `ROADMAP.md`…) i stan pętli (`ORCHESTRATION_STATE.md`) przeżywają restart, `/clear` i zmianę komputera.
 * **Uczy się na błędach.** Każda powtarzająca się wpadka wykonawcy staje się nową „stałą zasadą” doklejaną do wszystkich kolejnych zleceń.
 
-Metoda powstała i została sprawdzona przy produkcji prawdziwego projektu (gra w Godocie — patrz bliźniaczy [Brygadzista — Gamedev](https://github.com/adrian-wulf/brygadzista-gamedev)): w tym trybie powstało 5 pełnych milestone'ów i 58 zadań — każde zlecone agy, zweryfikowane i zacommitowane osobno.
+Metoda powstała i została sprawdzona przy produkcji prawdziwego projektu (gra w Godocie — patrz bliźniaczy [Vorarbeiter — Gamedev](https://github.com/adrian-wulf/vorarbeiter-gamedev)): w tym trybie powstało 5 pełnych milestone'ów i 58 zadań — każde zlecone agy, zweryfikowane i zacommitowane osobno.
 
 ---
 
-## 📊 Porównanie: Claude koduje sam vs Brygadzista
+## 📊 Porównanie: Claude koduje sam vs Vorarbeiter
 
-| Cecha | Claude Code pisze kod sam | 🦺 **Brygadzista** |
+| Cecha | Claude Code pisze kod sam | 🦺 **Vorarbeiter** |
 | :--- | :---: | :---: |
 | **Kto pisze kod** | Drogi model (Opus/Sonnet) | **Tani wykonawca** (agy / Gemini Flash) |
 | **Na co idą tokeny Claude'a** | Na każdą linijkę kodu | **Na planowanie i weryfikację** |
@@ -129,7 +129,7 @@ flowchart TD
 
 ### 1. Utwórz projekt z szablonu
 ```bash
-gh repo create moj-projekt --private --template adrian-wulf/brygadzista-code --clone
+gh repo create moj-projekt --private --template adrian-wulf/vorarbeiter-code --clone
 cd moj-projekt
 ```
 *(albo przycisk **Use this template** na GitHubie)*
@@ -234,11 +234,11 @@ tests/                    testy samego szablonu: bash tests/run_all.sh
 
 ## 🌐 Ekosystem Adriana Wulfa
 
-Brygadzista jest częścią rodziny niezależnych, wydajnych narzędzi tworzonych w duchu **RobinHood dev** — bez abonamentów i korporacyjnego narzutu:
+Vorarbeiter jest częścią rodziny niezależnych, wydajnych narzędzi tworzonych w duchu **RobinHood dev** — bez abonamentów i korporacyjnego narzutu:
 
 | Usługa / Projekt | Adres URL | Przeznaczenie |
 | :--- | :---: | :--- |
-| 🦺 **Brygadzista — Gamedev** | [github.com/adrian-wulf/brygadzista-gamedev](https://github.com/adrian-wulf/brygadzista-gamedev) | **Bliźniaczy szablon** do tworzenia gier (Godot / Unity, GDD zamiast PRD). |
+| 🦺 **Vorarbeiter — Gamedev** | [github.com/adrian-wulf/vorarbeiter-gamedev](https://github.com/adrian-wulf/vorarbeiter-gamedev) | **Bliźniaczy szablon** do tworzenia gier (Godot / Unity, GDD zamiast PRD). |
 | 🛡️ **Nachtwache** | [github.com/adrian-wulf/nachtwache](https://github.com/adrian-wulf/nachtwache) | **Strażnik błędów:** lekki drop-in zamiennik Sentry z AI Auto-Fix (~15 MB RAM). |
 | 🚀 **Wulf Lead.er** | [lead.social-wulf.eu](https://lead.social-wulf.eu) | **Generator Leadów B2B & Audytor OSINT:** pozyskiwanie klientów, audyty SEO/Core Web Vitals. |
 | 🌐 **Centralny Wulf Hub** | [social-wulf.eu](https://social-wulf.eu) | **Główny Hub Ekosystemu:** wizytówka projektów i narzędzia biznesowe. |
@@ -256,13 +256,13 @@ Brygadzista jest częścią rodziny niezależnych, wydajnych narzędzi tworzonyc
 ### Czym jest filozofia RobinHood dev?
 > **„Nowoczesne narzędzia inżynierskie, stabilność produkcji i swoboda wdrażania oprogramowania nie powinny być luksusem zarezerwowanym wyłącznie dla korporacji z gigantycznymi budżetami.”**
 
-Programowanie z pomocą AI stało się wyścigiem na budżety: kto płaci za najdroższy plan, ten dowozi. Brygadzista odwraca tę logikę:
+Programowanie z pomocą AI stało się wyścigiem na budżety: kto płaci za najdroższy plan, ten dowozi. Vorarbeiter odwraca tę logikę:
 * Drogi model robi tylko to, w czym jest niezastąpiony — **rozumie, planuje i sprawdza**. Kod pisze model tani lub darmowy.
 * Metoda, dokumenty i pętla są w 100% otwarte — bez ukrytych paywalli, płatnych wersji „pro” ani telemetrii.
 * Solo-dev z planem Pro może prowadzić projekt jak mały zespół z kierownikiem i wykonawcą.
 
 ### Jak możesz pomóc?
-Jeśli Brygadzista pomógł Ci dowieźć projekt albo zaoszczędził limit w planie — dołóż cegiełkę:
+Jeśli Vorarbeiter pomógł Ci dowieźć projekt albo zaoszczędził limit w planie — dołóż cegiełkę:
 * ☕ **Postaw wirtualną kawę:** [buymeacoffee.com/adrianwulf](https://buymeacoffee.com/adrianwulf)
 * 💖 **Wspieraj na GitHub Sponsors:** [github.com/sponsors/adrian-wulf](https://github.com/sponsors/adrian-wulf)
 * ⭐ **Zostaw gwiazdkę na GitHubie:** pomóż szablonowi dotrzeć do kolejnych twórców.
