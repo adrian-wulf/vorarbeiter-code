@@ -208,7 +208,7 @@ EXECUTOR=codex bash executor/preflight.sh
 | Wykonawca | Status |
 | :--- | :--- |
 | `agy` (Antigravity CLI) | ✅ domyślny, zweryfikowany |
-| `codex` (OpenAI Codex CLI) | ✅ zweryfikowany |
+| `codex` (OpenAI Codex CLI) | ⚠️ wywołanie zweryfikowane (flagi, sandbox, kody wyjścia); pełny cykl zależy od Twojego providera |
 | `gemini` (Gemini CLI) | ⚠️ niezweryfikowany na żywo |
 
 Kody wyjścia `run.sh`: `0` OK · `1` błąd · `3` wyczerpany limit (pętla staje bez commita) · `4` brak logowania.

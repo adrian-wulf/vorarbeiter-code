@@ -210,7 +210,7 @@ EXECUTOR=codex bash executor/preflight.sh
 | Executor | Status |
 | :--- | :--- |
 | `agy` (Antigravity CLI) | ✅ default, verified |
-| `codex` (OpenAI Codex CLI) | ✅ verified |
+| `codex` (OpenAI Codex CLI) | ⚠️ invocation verified (flags, sandbox, exit codes); the full cycle depends on your provider |
 | `gemini` (Gemini CLI) | ⚠️ not verified live |
 
 `run.sh` exit codes: `0` OK · `1` error · `3` quota exhausted (the loop stops without committing) · `4` not logged in.

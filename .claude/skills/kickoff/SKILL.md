@@ -90,6 +90,10 @@ step "build"     npm run build
 exit $rc
 ```
 
+Dopisz do `.gitignore` artefakty stacku (np. `node_modules/`, `dist/`,
+`__pycache__/`, `.venv/`, `target/`, `.env`) — zanim wykonawca cokolwiek
+zbuduje.
+
 Wzorzec `CODING_STYLE.md`: `docs-templates/coding-style/<język>.md`, jeśli
 istnieje (typescript, python, go, rust); w przeciwnym razie piszesz
 CODING_STYLE z wywiadu. Zasady specyficzne dla stacku, które warto
