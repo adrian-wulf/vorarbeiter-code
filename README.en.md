@@ -242,8 +242,7 @@ Vorarbeiter is part of a family of independent, efficient tools built in the spi
 | :--- | :---: | :--- |
 | 🦺 **Vorarbeiter — Gamedev** | [github.com/adrian-wulf/vorarbeiter-gamedev](https://github.com/adrian-wulf/vorarbeiter-gamedev) | **Twin template** for making games (Godot / Unity, GDD instead of PRD). |
 | 🛡️ **Nachtwache** | [github.com/adrian-wulf/nachtwache](https://github.com/adrian-wulf/nachtwache) | **Error guardian:** lightweight drop-in Sentry replacement with AI Auto-Fix (~15 MB RAM). |
-| 🚀 **Wulf Lead.er** | [lead.social-wulf.eu](https://lead.social-wulf.eu) | **B2B Lead Generator & OSINT Auditor:** client acquisition, SEO/Core Web Vitals audits. |
-| 🌐 **Central Wulf Hub** | [social-wulf.eu](https://social-wulf.eu) | **Ecosystem hub:** project showcase and business tools. |
+| 🌐 **Central Wulf Hub** | [wulf-code.eu](https://wulf-code.eu) | **Ecosystem hub:** project showcase and business tools. |
 | 💼 **Wulf Code** | [wulf-code.it](https://wulf-code.it) | **Software House & Consulting:** custom deployments and bespoke software. |
 
 ---
@@ -277,7 +276,7 @@ If Vorarbeiter helped you ship a project or saved your plan's limits — chip in
 ### Information pursuant to § 5 of the German Digital Services Act (DDG - Digitale-Dienste-Gesetz):
 This project is developed and published by:
 * **Author / Service provider:** Adrian Wulf
-* **Contact:** via the GitHub profile [https://github.com/adrian-wulf](https://github.com/adrian-wulf) and [https://social-wulf.eu](https://social-wulf.eu) / [https://wulf-code.it](https://wulf-code.it).
+* **Contact:** via the GitHub profile [https://github.com/adrian-wulf](https://github.com/adrian-wulf) and [https://wulf-code.eu](https://wulf-code.eu) / [https://wulf-code.it](https://wulf-code.it).
 
 ### Disclaimer & MIT License:
 The software is provided **“AS IS”**, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability or fitness for a particular purpose. See [LICENSE](LICENSE) for the full text.

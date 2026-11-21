@@ -240,8 +240,7 @@ Vorarbeiter jest częścią rodziny niezależnych, wydajnych narzędzi tworzonyc
 | :--- | :---: | :--- |
 | 🦺 **Vorarbeiter — Gamedev** | [github.com/adrian-wulf/vorarbeiter-gamedev](https://github.com/adrian-wulf/vorarbeiter-gamedev) | **Bliźniaczy szablon** do tworzenia gier (Godot / Unity, GDD zamiast PRD). |
 | 🛡️ **Nachtwache** | [github.com/adrian-wulf/nachtwache](https://github.com/adrian-wulf/nachtwache) | **Strażnik błędów:** lekki drop-in zamiennik Sentry z AI Auto-Fix (~15 MB RAM). |
-| 🚀 **Wulf Lead.er** | [lead.social-wulf.eu](https://lead.social-wulf.eu) | **Generator Leadów B2B & Audytor OSINT:** pozyskiwanie klientów, audyty SEO/Core Web Vitals. |
-| 🌐 **Centralny Wulf Hub** | [social-wulf.eu](https://social-wulf.eu) | **Główny Hub Ekosystemu:** wizytówka projektów i narzędzia biznesowe. |
+| 🌐 **Centralny Wulf Hub** | [wulf-code.eu](https://wulf-code.eu) | **Główny Hub Ekosystemu:** wizytówka projektów i narzędzia biznesowe. |
 | 💼 **Wulf Code** | [wulf-code.it](https://wulf-code.it) | **Software House & Consulting:** dedykowane wdrożenia i oprogramowanie na zamówienie. |
 
 ---
@@ -275,7 +274,7 @@ Jeśli Vorarbeiter pomógł Ci dowieźć projekt albo zaoszczędził limit w pla
 ### Informacje zgodnie z § 5 niemieckiej ustawy o usługach cyfrowych (DDG - Digitale-Dienste-Gesetz):
 Projekt jest rozwijany i publikowany przez:
 * **Autor / Usługodawca:** Adrian Wulf
-* **Kontakt:** Dostępny za pośrednictwem profilu GitHub: [https://github.com/adrian-wulf](https://github.com/adrian-wulf) oraz platformy [https://social-wulf.eu](https://social-wulf.eu) / [https://wulf-code.it](https://wulf-code.it).
+* **Kontakt:** Dostępny za pośrednictwem profilu GitHub: [https://github.com/adrian-wulf](https://github.com/adrian-wulf) oraz platformy [https://wulf-code.eu](https://wulf-code.eu) / [https://wulf-code.it](https://wulf-code.it).
 
 ### Wyłączenie odpowiedzialności (Disclaimer) & Licencja MIT:
 Oprogramowanie jest dostarczane w stanie, w jakim się znajduje (**„AS IS”**), bez jakichkolwiek gwarancji, wyraźnych lub dorozumianych, w tym m.in. gwarancji przydatności handlowej lub przydatności do określonego celu. Pełna treść licencji dostępna jest w pliku [LICENSE](LICENSE).
